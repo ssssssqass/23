@@ -2,13 +2,13 @@ const mineflayer = require('mineflayer');
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => res.send('🌐 بوت mohammadking3 يعمل 24/7'));
-app.listen(3000, () => console.log('🌐 Web server running on port 3000'));
+app.get('/', (req, res) => res.send('🌐 MR_Dark280 Online 24/7'));
+app.listen(3000);
 
 const botArgs = {
-    host: 'Goldmc.xyz',
+    host: 'goldmc.xyz',
     port: 25565,
-    username: 'mohammadking3',
+    username: 'MR_Dark280', 
     version: '1.20.1'
 };
 
@@ -16,34 +16,18 @@ function createBot() {
     const bot = mineflayer.createBot(botArgs);
 
     bot.on('login', () => {
-        console.log('[✔] البوت mohammadking3 دخل اللوبي');
+        console.log(`[✔] دخل الحساب: ${botArgs.username}`);
+        setTimeout(() => bot.chat('/login 1234567'), 7000);
+        setTimeout(() => bot.chat('/survival'), 20000);
         
-        // تسجيل الدخول بعد 7 ثوانٍ
+        // ريست كل ساعتين
         setTimeout(() => {
-            bot.chat('/login 1234567'); 
-            console.log('[🔑] تم تسجيل دخول mohammadking3');
-        }, 7000);
-
-        // دخول السيرفايفل بعد 20 ثانية
-        setTimeout(() => {
-            bot.chat('/survival');
-            console.log('[↕] البوت الآن في السيرفايفل (ساعة عمل)');
-        }, 20000);
-
-        // إغلاق الاتصال يدوياً بعد ساعة لتجديد الاتصال
-        setTimeout(() => {
-            console.log('🔄 تجديد الاتصال لـ mohammadking3...');
+            console.log('🔄 ريست دوري لـ MR_Dark280');
             bot.quit();
-        }, 3600000); 
+        }, 7200000); 
     });
 
-    bot.on('error', (err) => console.log('خطأ في البوت:', err));
-    
-    // إعادة الدخول بعد دقيقتين من الخروج
-    bot.on('end', () => {
-        console.log('🔄 استراحة دقيقتين ثم العودة...');
-        setTimeout(createBot, 120000);
-    });
+    bot.on('end', () => setTimeout(createBot, 10000));
+    bot.on('error', (err) => console.log('❌ خطأ:', err));
 }
-
 createBot();
