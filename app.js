@@ -2,13 +2,13 @@ const mineflayer = require('mineflayer');
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => res.send('🌐 MR_Dark280 Online 24/7'));
+app.get('/', (req, res) => res.send('🌐 mohammadking3 Online 24/7'));
 app.listen(3000);
 
 const botArgs = {
     host: 'goldmc.xyz',
     port: 25565,
-    username: 'MR_Dark280', 
+    username: 'mohammadking3', 
     version: '1.20.1'
 };
 
@@ -22,7 +22,7 @@ function createBot() {
         
         // ريست كل ساعتين
         setTimeout(() => {
-            console.log('🔄 ريست دوري لـ MR_Dark280');
+            console.log('🔄 ريست دوري لـ mohammadking3');
             bot.quit();
         }, 7200000); 
     });
